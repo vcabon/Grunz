@@ -11,7 +11,7 @@ from typing import Dict, List
 class ConfidenceRating(Enum):
     """Confidence rating value of model."""
 
-    MINIMUM = 0.850
+    MINIMUM = 0.85
 
 
 class Categories(Enum):

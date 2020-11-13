@@ -10,7 +10,7 @@ from grunz.file_utils.file_utils import FileUtils
 from grunz.splitter.splitter import Splitter
 from grunz.json_parser.json_parser import JSONParser
 
-from cameratraps.detection.run_tf_detector_batch import load_and_run_detector_batch, \
+from CameraTraps.detection.run_tf_detector_batch import load_and_run_detector_batch, \
                                                         write_results_to_file
 
 from pathlib import Path
@@ -49,7 +49,7 @@ def pre_pro(root_video_directory: str) -> None:
                                           image_file_names=jpeg_file_paths,
                                           checkpoint_path=output_json,
                                           checkpoint_frequency=1,
-                                          confidence_threshold=0.850)
+                                          confidence_threshold=0.85)
     return write_results_to_file(results, output_json)
 
 
@@ -61,10 +61,10 @@ def post_pro(mega_detector_json) -> None:
         - Sorting positive results from negative.
     :return: None.
     """
-    positive_detection_path = "grunz/output/positive_detection/"
+    positive_detection_path = "D:/Wildschweinprojekt/positive_detection/"
 
     file_utils = FileUtils(Path("grunz/data/output"))
-    file_utils.create_directory(Path("grunz/output/positive_detection"))
+    file_utils.create_directory(Path("D:/Wildschweinprojekt/positive_detection/"))
 
     json_parser = JSONParser(mega_detector_json)
 
